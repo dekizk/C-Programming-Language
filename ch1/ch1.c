@@ -1,50 +1,82 @@
+/* Chapter 1 examples & exercises for K&R C Programming Language Book 
+NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
+
 #include <stdio.h>
 
-int main()
+/* main() // NOTE: every C program begins executing at the beginning of main
 {
     printf("hello, world\n");
-}
+} */
 
-int main(void)
+/*int main()
+{
+    // Variables declarations (all variables must be declared before they are used)
+    float fahr, celsius;    // floating point numbers; may have fractional part
+    int lower, upper, step; // variables are integers
+
+    lower = 0;              // lower limit of temp table 
+    upper = 300;            // upper limit 
+    step = 20;              // step size 
+
+    fahr = lower;
+    printf("Temp Conversion F to C\n"); // Part of EXERCISE 1-3
+
+    while (fahr <= upper) {
+        celsius = (5.0/9.0) * (fahr-32.0); // NOTE: integer division in C truncates (fractional part discarded), therefore using floating point values
+                                           // original example shows why integer arithmetic is incorrect, should use floating-point arithmetic
+        printf("%3.0f\t%6.1f\n", fahr, celsius);
+        fahr += step;
+    }
+}*/
+
+// EXERCISE 1-4 Program to print Celsius to Fahrenheit table
+/*int main()
 {
     float fahr, celsius;
     int lower, upper, step;
 
-    lower = 0;      /* lowerl imit of temp table */
-    upper = 300;    /* upper limit */
-    step = 20;      /* step size */
+    lower = 0;
+    upper = 300;
+    step = 20;
 
-    fahr = lower;
-    printf("Temp Conversion F to C\n");
-    while (fahr <= upper) {
-        celsius = (5.0/9.0) * (fahr-32.0);
-        printf("%3.0f\t%6.1f\n", fahr, celsius);
-        fahr +=step;
+    celsius = lower;
+    printf("Temp Conversion C to F\n");
+
+    while (celsius <= upper) {
+        fahr = ((9.0/5.0) * celsius) + 32.0;
+        printf("%3.0f\t%5.0f\n", celsius, fahr);
+        celsius += step;
     }
-}
-// #define LOWER 0     //lower limit of table
-// #define UPPER 300   //upper limit of table
-// #define STEP 20     //step size
+}*/
 
-// int main(void)
-// {
-//     int fahr;
+// SYMBOLIC CONSTANTS
+/* #define LOWER 0     // lower limit of table
+#define UPPER 300   // upper limit of table
+#define STEP 20     // step size
+*/
+/* int main(void)
+{
+    int fahr;
+    printf("Temp Conversion F to C\n");
 
-//     for(fahr = LOWER; fahr <= UPPER; fahr += STEP)
-//         printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
-// }
+    for (fahr = LOWER; fahr <= UPPER; fahr += STEP)
+        printf("%3d\t%6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+    // EXERCISE 1-5 Print the table in reverse order from 300 to 0
+    //for (fahr = UPPER; fahr >= LOWER; fahr -= STEP)
+    //    printf("%3d\t%6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+} */
 
+// Character Input and Output
+/*int main()
+{
+    int c;
 
-// int main()
-// {
-//     int c;
-
-//     c = getchar();
-//     while (c != EOF) {
-//         putchar(c);
-//         c = getchar();
-//     }
-// }
+    c = getchar();       // getchar reads the next input cahracter from a text stream, assigns it to c
+    while (c != EOF) {   // EOF is used to distinguish the end of the input
+        putchar(c);      // putchar prints the contents held by c variable, essentially you will see your input as your ouput
+        c = getchar();   // this means we will always ask for your input after putchar, to exit: ctrl + C
+    }
+}*/
 
 // int main(void)
 // {
@@ -154,7 +186,7 @@ int main(void)
 
 // program to print histogram of lengths of words
 
-int main()
+/* int main()
 {
     int c, i, nchar;
     int numChar[10];
@@ -164,4 +196,4 @@ int main()
             for (i = 0, i < 10, ++i)
                 ++numChar[i];
                 printf("numChar: %d", numChar-1);
-}
+}*/
