@@ -78,6 +78,16 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
     }
 }*/
 
+// Cont.
+
+int main()
+{
+    int c;
+
+    while ((c = getchar()) != EOF)
+    putchar(c);
+}
+
 // int main(void)
 // {
 //     long nc; //long variable 32 bits
