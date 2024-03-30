@@ -71,7 +71,7 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
 {
     int c;
 
-    c = getchar();       // getchar reads the next input cahracter from a text stream, assigns it to c
+    c = getchar();       // getchar reads the next input character from a text stream, assigns it to c
     while (c != EOF) {   // EOF is used to distinguish the end of the input
         putchar(c);      // putchar prints the contents held by c variable, essentially you will see your input as your ouput
         c = getchar();   // this means we will always ask for your input after putchar, to exit: ctrl + C
@@ -80,13 +80,18 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
 
 // Cont.
 
-int main()
+int main()  // more concise re-write of previous example, centralizes the input with only one reference to getchar
 {
     int c;
-
-    while ((c = getchar()) != EOF)
+    printf("EOF is: %d\n", (getchar() != EOF)); // Exercise 1-6: Verify expression getchar() != EOF is 0 or 1, press enter first
+    printf("EOF value: %d", EOF);               // Exercise 1-7 Print the value of EOF
+    while ((c = getchar()) != EOF)              // this example puts the assignment expression into the while test-condition
     putchar(c);
 }
+
+
+
+
 
 // int main(void)
 // {
