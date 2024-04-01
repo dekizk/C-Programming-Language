@@ -80,43 +80,49 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
 
 // Cont.
 
-int main()  // more concise re-write of previous example, centralizes the input with only one reference to getchar
+/*int main()  // more concise re-write of previous example, centralizes the input with only one reference to getchar
 {
     int c;
     printf("EOF is: %d\n", (getchar() != EOF)); // Exercise 1-6: Verify expression getchar() != EOF is 0 or 1, press enter first
     printf("EOF value: %d", EOF);               // Exercise 1-7 Print the value of EOF
     while ((c = getchar()) != EOF)              // this example puts the assignment expression into the while test-condition
     putchar(c);
-}
+}*/
 
+/*int main(void)           // NOTE: press ctrl + D to terminate the program and see printf output
+{
+    long nc; //long variable 32 bits
 
+    nc = 0;
+    while (getchar() != EOF)
+        ++nc;             // increments nc by 1 to indicate a new character has been read
+    printf("%ld\n", nc); // ld is for long integer: 32 bits 
+}*/
 
+// Same code as above, but using a for loop
+/*int main()
+{
+    double nc;
 
+    for (nc = 0; getchar() != EOF; ++nc)
+        ;                  // null statement as everything is done in test and increment part, but for loops require a statement, hence the isolated ;
+    printf("%.0f\n", nc); // %f is for floating point numbers, %.0f is for floating point numbers with no decimal point
+}*/
 
-// int main(void)
-// {
-//     long nc; //long variable 32 bits
-
-//     nc = 0;
-//     while (getchar() != EOF)
-//         ++nc;
-//     printf("%ld\n", nc); //ld is for long integer
-// }
-
-// int main() // Counts new lines, tabs, blank spaces, outputs the number after ctrl + D
-// {
-//     int c, nl, bl, tb;
-//     nl = bl = tb = 0;
-//     while((c = getchar()) != EOF)
-//         if (c == '\n')
-//             ++nl;
-//         else if (c == '\t')
-//             ++tb;
-//         else if (c == ' ')
-//             ++bl;
-//     printf("Number of new lines: %d\nNumber of blanks: %d\nNumber of tabs: %d\n", nl, bl, tb);
-//     return 0;
-// }
+int main() // Counts new lines, tabs, blank spaces, outputs the number after ctrl + D. This is Exercise 1-8
+{
+    int c, nl, bl, tb;
+    nl = bl = tb = 0;
+    while((c = getchar()) != EOF)
+        if (c == '\n')      // if getchar() receives a newline character, increment nl by 1
+            ++nl;
+        else if (c == '\t') // if getchar() receives a tab character, increment tb by 1
+            ++tb;
+        else if (c == ' ')  // if getchar() receives a blank space character, increment bl by 1
+            ++bl;
+    printf("Number of new lines: %d\nNumber of blanks: %d\nNumber of tabs: %d\n", nl, bl, tb);
+    return 0;
+}                           // Note: character in single quotes represent a single character, double quotes represent a string
 
 // int main()
 // {
