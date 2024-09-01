@@ -8,6 +8,7 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
     printf("hello, world\n");
 } */
 
+// 1.2 Fahrenheit to Celsius conversions
 /*int main()
 {
     // Variables declarations (all variables must be declared before they are used)
@@ -126,7 +127,7 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
 
 // EXERCISE 1-9 Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank
 
-int main()
+/*int main()
 {
     int c, bl;
     while((c = getchar()) != EOF)
@@ -137,50 +138,53 @@ int main()
         }
         putchar(c);
     return 0;
-}
+}*/
 
 /* EXERCISE 1-10 Write a program to copy its input to its output, replacing each tab by \t, each backspace by \b, and each backslash by */
-// int main()
-// {
-//     int c;
-//     while((c = getchar()) != EOF)
-//         if (c == '\t') {
-//             putchar('\\'); // have to put double \\, becaue \ is an escape character in C, therefore will only output one
-//             putchar('t');
-//         }
-//         else if (c == '\b') {
-//             putchar('\\');
-//             putchar('b');
-//         }
-//         else if (c == '\\') {
-//             putchar('\\');
-//         } 
-//     return 0;
-// }
+/*int main()
+{
+    int c;
+    while((c = getchar()) != EOF)
+        if (c == '\t') {
+            putchar('\\'); // have to put double \\, becaue \ is an escape character in C, therefore will only output one
+            putchar('t');
+        }
+        else if (c == '\b' || c == 127) {
+            putchar('\\');
+            putchar('b');
+        }
+        else if (c == '\\') {
+            putchar('\\');
+            putchar('\\');
+        } 
+    return 0;
+}*/
 
-// #define IN  1        // inside wordd
-// #define OUT 0
+/* 1.5.4 Word counting example: counts lines, words, and character */
 
-// /*  count lines, words and characters in input */
-// int main()
-// {
-//     int c, nl, nw, nc, state;
+#define IN  1        // inside word
+#define OUT 0        // outside word
 
-//     state = OUT;
-//     nl = nw = nc = 0;
-//     while ((c = getchar()) != EOF) {
-//         ++nc;
-//         if (c == '\n')
-//         ++nl;
-//         if (c == ' ' || c == '\n' || c == '\t')
-//         state = OUT;
-//         else if (state == OUT) { 
-//         state = IN;
-//         ++nw;
-//         }
-//     }
-//     printf("%d %d %d\n", nl, nw, nc);
-// }
+
+int main()
+{
+    int c, nl, nw, nc, state;
+
+    state = OUT;
+    nl = nw = nc = 0;
+    while ((c = getchar()) != EOF) {
+        ++nc;           // increment whatever character getchar() receives
+        if (c == '\n')  // if conditions to check which character type, then increment corresponding type
+        ++nl;
+        if (c == ' ' || c == '\n' || c == '\t') // need a way to determine if we are in a word or not, || is OR expression
+        state = OUT;                            // if there's a space, newline, or tab, then we are out of a word
+        else if (state == OUT) { 
+        state = IN;                             // otherwise we are always inside a word
+        ++nw;
+        }
+    }
+    printf("%d %d %d\n", nl, nw, nc);           // Crtl+D to exit program and print results
+}
 
 /* count digits, white space, others, store in array */
 
