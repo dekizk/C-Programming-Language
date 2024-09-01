@@ -162,7 +162,7 @@ NOTE: REMOVE COMMENTED LINES TO COMPILE DESIRED CODE */
 
 /* 1.5.4 Word counting example: counts lines, words, and character */
 
-#define IN  1        // inside word
+/* #define IN  1        // inside word
 #define OUT 0        // outside word
 
 
@@ -185,7 +185,17 @@ int main()
     }
     printf("%d %d %d\n", nl, nw, nc);           // Crtl+D to exit program and print results
 }
+*/
+/* Exercise 1-12  Write a program that prints its input one word per line */
+int main ()
+{
+    int c;
 
+    while((c = getchar()) != EOF)
+        if (c == ' ' || c == '\n')
+        putchar(c);
+        putchar('\n');
+}
 /* count digits, white space, others, store in array */
 
 // int main()
