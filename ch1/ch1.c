@@ -187,14 +187,26 @@ int main()
 }
 */
 /* Exercise 1-12  Write a program that prints its input one word per line */
-int main ()
-{
+int main() {
     int c;
+    int first_char = 1;
 
-    while((c = getchar()) != EOF)
-        if (c == ' ' || c == '\n')
-        putchar(c);
+    while ((c = getchar()) != EOF) {
+        if (c == ' ' || c == '\n' || c == '\t') {
+            if (!first_char) {
+                putchar('\n');
+            }
+            first_char = 1;
+        } else {
+            putchar(c);
+            first_char = 0;
+        }
+    }
+
+    // Add a final newline if the last character wasn't a whitespace
+    if (!first_char) {
         putchar('\n');
+    }
 }
 /* count digits, white space, others, store in array */
 
